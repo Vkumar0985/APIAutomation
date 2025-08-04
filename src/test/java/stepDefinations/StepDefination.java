@@ -76,14 +76,22 @@ public class StepDefination extends Utils {
 		APIResources resourceAPI = APIResources.valueOf(resource);
 		System.out.println(resourceAPI.getResource());
 		resspec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-		if (method.equalsIgnoreCase("PUT"))
+		if (method.equalsIgnoreCase("PUT")) {
 			response = res.when().post(resourceAPI.getResource());
-		else if (method.equalsIgnoreCase("GET"))
+		}
+		else if (method.equalsIgnoreCase("GET")) {
 			response = res.when().get(resourceAPI.getResource());
+		}
 	}
 	@Then("the API call got success with status code for update place {int}")
 	public void the_API_call_got_success_with_status_code_udpate(Integer int1) {
 		assertEquals(response.getStatusCode(), 200);
+	}
+	@Then("verify place_Id updated maps to {string} using {string}")
+	public void verify_place_Id_updated_maps_to_using(String expectedaddress, String resource) throws IOException {
+		user_calls_with_http_request(resource, "GET");
+		String actualaddress = getJsonPath(response, "address");
+		assertEquals(actualaddress, expectedaddress);
 	}
 	//Delete api
 	@Given("DeletePlace Payload")

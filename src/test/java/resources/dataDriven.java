@@ -25,7 +25,7 @@ public class dataDriven {
 		// fileInputStream argument
 		ArrayList<String> a = new ArrayList<String>();
 
-		FileInputStream fis = new FileInputStream("/Users/vkumar628/Downloads/RestAssured/APIFramework/TestData.xlsx");
+		FileInputStream fis = new FileInputStream("C:\\Users\\vkumar628\\git\\APIAutomation\\TestData.xlsx");
 
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 

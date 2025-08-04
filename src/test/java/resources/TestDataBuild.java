@@ -33,12 +33,12 @@ public class TestDataBuild {
 		return p;
 	}
 	
-public UpdatePlace updatePlacePayload(String place_id, String language) {
+public UpdatePlace updatePlacePayload(String place_id, String address) {
 		UpdatePlace u=new UpdatePlace();
 		u.setPlace_id(place_id);
 		//u.setName(name);
-		u.setLanguage(language);
-		//u.setAddress(address);
+		//u.setLanguage(language);
+		u.setAddress(address);
 		//u.setPhone_number("(+91) 983 893 4964");
 		return u;
 		
