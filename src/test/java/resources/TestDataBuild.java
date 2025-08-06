@@ -12,9 +12,9 @@ public class TestDataBuild {
 
 	public AddPlace addPlacePayLoad(String name, String language, String address) throws IOException {
 		AddPlace p = new AddPlace();
-		dataDriven data=new dataDriven();
-		ArrayList<String> d=data.getData("AddPlace");
-		
+		dataDriven data = new dataDriven();
+		ArrayList<String> d = data.getData("AddPlace");
+
 		p.setAccuracy(50);
 		p.setAddress(address);
 		p.setLanguage(language);
@@ -32,21 +32,17 @@ public class TestDataBuild {
 		p.setLocation(l);
 		return p;
 	}
-	
-public UpdatePlace updatePlacePayload(String place_id, String address) {
-		UpdatePlace u=new UpdatePlace();
+
+	public UpdatePlace updatePlacePayload(String place_id, String address) {
+		UpdatePlace u = new UpdatePlace();
 		u.setPlace_id(place_id);
-		//u.setName(name);
-		//u.setLanguage(language);
+		// u.setName(name);
+		// u.setLanguage(language);
 		u.setAddress(address);
-		//u.setPhone_number("(+91) 983 893 4964");
+		// u.setPhone_number("(+91) 983 893 4964");
 		return u;
-		
-		//guru
-		
-		
 	}
-			
+
 	public String deletePlacePayload(String placeId) {
 		return "{\r\n    \"place_id\":\"" + placeId + "\"\r\n}";
 	}

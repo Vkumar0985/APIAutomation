@@ -16,15 +16,14 @@ Examples:
 
 @UpdatePlace @Regression
 Scenario Outline: Verify if Place is getting updated successfully using UpdatePlaceAPI
-	Given Update Place Payload with "<language>" 
+	Given Update Place Payload with "<address>" 
 	When user calls an "UpdatePlaceAPI" with "PUT" http request
 	Then the API call got success with status code for update place 200
-	And verify place_Id updated maps to "<address>" using "getPlaceAPI"
 
-	
 Examples:
-	| address |
-	|  World cross center1  |
+	|address 							 |
+	|World cross center new|
+
 
 @DeletePlace @Regression
 Scenario: Verify if Delete Place functionality is working

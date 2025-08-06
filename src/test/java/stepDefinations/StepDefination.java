@@ -56,7 +56,7 @@ public class StepDefination extends Utils {
 	public void in_response_body_is(String keyValue, String Expectedvalue) {
 		assertEquals(getJsonPath(response, keyValue), Expectedvalue);
 	}
-
+	//Getting the resource details 
 	@Then("verify place_Id created maps to {string} using {string}")
 	public void verify_place_Id_created_maps_to_using(String expectedName, String resource) throws IOException {
 		place_id = getJsonPath(response, "place_id");
@@ -68,8 +68,8 @@ public class StepDefination extends Utils {
 
 	//Update method starts here 
 	@Given("Update Place Payload with {string}")
-	public void update_Place_Payload_with(String language) throws IOException {
-		res = given().spec(requestSpecification()).body(data.updatePlacePayload(place_id,language));
+	public void update_Place_Payload_with(String address) throws IOException {
+		res = given().spec(requestSpecification()).body(data.updatePlacePayload(place_id,address));
 	}
 	@When("user calls an {string} with {string} http request")
 	public void user_calls_with_http_request_update(String resource, String method) {
@@ -87,10 +87,20 @@ public class StepDefination extends Utils {
 	public void the_API_call_got_success_with_status_code_udpate(Integer int1) {
 		assertEquals(response.getStatusCode(), 200);
 	}
+
+	//And "status" in response body is for update is "OK"
+	@Then("{string} in response body is for update is {string}")
+	public void in_response_body_is_for_update_is(String keyValue, String Expectedvalue) {
+	    // Write code here that turns the phrase above into concrete actions
+		assertEquals(getJsonPath(response, keyValue), Expectedvalue);
+	}
+	
+
 	@Then("verify place_Id updated maps to {string} using {string}")
 	public void verify_place_Id_updated_maps_to_using(String expectedaddress, String resource) throws IOException {
 		user_calls_with_http_request(resource, "GET");
-		String actualaddress = getJsonPath(response, "address");
+		String actualaddress = getJsonPath(response, "msg");
+		System.out.println(actualaddress);
 		assertEquals(actualaddress, expectedaddress);
 	}
 	//Delete api

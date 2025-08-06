@@ -9,7 +9,7 @@ public class UpdatePlace {
 	private String phone_number;
 	private String address;
 	private String language;
-	
+
 	public String getPlace_id() {
 		return place_id;
 	}
@@ -17,7 +17,6 @@ public class UpdatePlace {
 	public void setPlace_id(String place_id) {
 		this.place_id = place_id;
 	}
-
 
 	public String getName() {
 		return name;
